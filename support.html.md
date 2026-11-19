@@ -4,7 +4,7 @@ Candles in a heap, seven brass holders, three alike burn away.
 
 ## Contact
 
-Open an issue at [github.com/nguyenvanlamm/twinwick/issues](https://github.com/nguyenvanlamm/twinwick/issues). Please say which device you play on and, if it is about a level, its chapter and number (for example Still Warm · 81).
+Write to [lamnv260398@gmail.com](mailto:lamnv260398@gmail.com). Please say which device you play on and, if it is about a level, its chapter and number (for example Still Warm · 81).
 
 ## How to play
 

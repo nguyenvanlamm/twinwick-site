@@ -32,4 +32,4 @@ The game collects no personal information from anyone, including children.
 
 If this policy changes, the new version will be posted on this page with a new date.
 
-Questions: [Twinwick support](https://nguyenvanlamm.github.io/twinwick-site/support.html.md).
+Questions: write to [lamnv260398@gmail.com](mailto:lamnv260398@gmail.com) or see [Twinwick support](https://nguyenvanlamm.github.io/twinwick-site/support.html.md).
