@@ -95,11 +95,13 @@
 
   header.hero { padding: 40px 0 24px; text-align: center; }
   .hero .icon { width: 112px; height: 112px; margin: 0 auto 20px; border-radius: 25px; box-shadow: 0 1px 0 var(--line), 0 10px 26px rgba(38,29,23,.16); }
-  h1 { font-weight: 800; font-size: clamp(44px, 12vw, 72px); line-height: 1; letter-spacing: -.03em; margin: 0 0 14px; }
+  h1 { font-weight: 800; font-size: clamp(44px, 12vw, 72px); line-height: 1; letter-spacing: -.03em; margin: 0 0 10px; }
+  .kicker { margin: 0 0 16px; }
   .hook { font-size: clamp(19px, 4.6vw, 23px); line-height: 1.4; margin: 0 auto 18px; max-width: 30ch; }
   .soon { display: inline-flex; align-items: center; gap: 10px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font: 500 14px/1.3 var(--mono); }
   .soon .flame { width: 10px; height: 14px; background: var(--apricot); border: 1.5px solid var(--deep); border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; flex: none; }
-  .facts { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; font: 500 12px/1.5 var(--mono); color: var(--muted); }
+  .facts { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 10px; font: 500 12px/1.5 var(--mono); color: var(--muted); }
+  .facts li + li::before { content: "·"; margin-right: 10px; }
 
   .shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 16px 0 8px; }
   .shots figure { margin: 0; }
@@ -108,7 +110,12 @@
   .shots:focus-visible { outline: 2px solid var(--deep); outline-offset: 4px; border-radius: 8px; }
   @media (max-width: 359px) {
     .soon { padding: 8px 12px; font-size: 13px; }
-    .facts { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 4px 16px; }
+  }
+  @media (max-width: 479px) {
+    .facts { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 4px 10px; }
+    .facts li:nth-child(odd) { justify-self: end; }
+    .facts li:nth-child(even) { justify-self: start; }
+    .facts li:nth-child(odd)::before { content: none; }
   }
   @media (max-width: 599px) {
     .shots { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%; overflow-x: auto; scroll-snap-type: x mandatory; padding: 16px 16px 8px; margin: 0 -16px; }
@@ -147,6 +154,7 @@
   <div class="wrap">
     <img class="icon" src="icon-224.png" width="112" height="112" fetchpriority="high" alt="Twinwick app icon: two taper candles, one pink and one slate blue, tied by one wick over a brass holder">
     <h1>Twinwick</h1>
+    <p class="label kicker">A candle-heap puzzle for iPhone</p>
     <p class="hook">The market is over and the candles are in a heap. Stand them up, three alike, and watch them burn away.</p>
     <p class="soon"><span class="flame" aria-hidden="true"></span>Coming soon to the App Store</p>
     <ul class="facts" aria-label="At a glance">
@@ -180,8 +188,8 @@
           <li><strong>Tap any candle you can see.</strong> Even one half buried in the heap. It stands up in one of seven brass holders on the wall rail.</li>
           <li><strong>Three alike burn away.</strong> They catch for a moment, go out in a curl of smoke, and free their holders.</li>
           <li><strong>Tied candles travel together.</strong> Two or three candles on one wick go up as a group, buried ones included. If the group will not fit, the wick goes taut and nothing is lost, so count the free holders first.</li>
-          <li><strong>Warm wax waits.</strong> A candle marked with a number lifts only after that many triples have burned.</li>
-          <li><strong>Clear the cloth to shelve the batch.</strong> Seven full holders and no three alike ends it; play it again for free.</li>
+          <li><strong>Warm wax waits.</strong> A warm candle carries a number and lifts only after that many triples (sets of three alike) have burned.</li>
+          <li><strong>Clear the cloth to shelve the batch</strong>, which wins the level. Seven full holders with no three alike ends the try; play it again for free.</li>
         </ol>
       </div>
     </section>
