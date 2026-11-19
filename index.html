@@ -105,6 +105,11 @@
   .shots figure { margin: 0; }
   .shots img { border-radius: 18px; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 8px 22px rgba(38,29,23,.10); aspect-ratio: 780 / 1688; width: 100%; }
   .shots figcaption { font: 500 12px/1.4 var(--mono); color: var(--muted); text-align: center; margin-top: 8px; }
+  .shots:focus-visible { outline: 2px solid var(--deep); outline-offset: 4px; border-radius: 8px; }
+  @media (max-width: 359px) {
+    .soon { padding: 8px 12px; font-size: 13px; }
+    .facts { display: grid; grid-template-columns: auto auto; justify-content: center; gap: 4px 16px; }
+  }
   @media (max-width: 599px) {
     .shots { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%; overflow-x: auto; scroll-snap-type: x mandatory; padding: 16px 16px 8px; margin: 0 -16px; }
     .shots figure { scroll-snap-align: center; }
@@ -140,7 +145,7 @@
 <body>
 <header class="hero">
   <div class="wrap">
-    <img class="icon" src="icon.png" width="112" height="112" alt="Twinwick app icon: two taper candles, one pink and one slate blue, tied by one wick over a brass holder">
+    <img class="icon" src="icon-224.png" width="112" height="112" fetchpriority="high" alt="Twinwick app icon: two taper candles, one pink and one slate blue, tied by one wick over a brass holder">
     <h1>Twinwick</h1>
     <p class="hook">The market is over and the candles are in a heap. Stand them up, three alike, and watch them burn away.</p>
     <p class="soon"><span class="flame" aria-hidden="true"></span>Coming soon to the App Store</p>
@@ -152,17 +157,17 @@
 
 <main>
   <div class="wrap">
-    <div class="shots" role="list" aria-label="Screenshots">
+    <div class="shots" role="list" aria-label="Screenshots" tabindex="0">
       <figure role="listitem">
-        <img src="shots/game.png" width="780" height="1688" loading="lazy" alt="A level in the Still Warm chapter: a heap of wax candles on a linen cloth, some joined by dark wicks, seven empty brass holders on a curved wall rail above, and a tall candle on the right showing 39 candles left">
+        <picture><source type="image/webp" srcset="shots/game.webp"><img src="shots/game.png" width="780" height="1688" fetchpriority="high" alt="A level in the Still Warm chapter: a heap of wax candles on a linen cloth, some joined by dark wicks, seven empty brass holders on a curved wall rail above, and a tall candle on the right showing 39 candles left"></picture>
         <figcaption>A heap on the linen cloth</figcaption>
       </figure>
       <figure role="listitem">
-        <img src="shots/home.png" width="780" height="1688" loading="lazy" alt="The Twinwick home screen: wax balance, a Light up button for level 85, and the six chapters from Market Stall to Festival Order with flames earned per level">
+        <picture><source type="image/webp" srcset="shots/home.webp"><img src="shots/home.png" width="780" height="1688" loading="lazy" alt="The Twinwick home screen: wax balance, a Light up button for level 85, and the six chapters from Market Stall to Festival Order with flames earned per level"></picture>
         <figcaption>Six chapters, 120 levels</figcaption>
       </figure>
       <figure role="listitem">
-        <img src="shots/won.png" width="780" height="1688" loading="lazy" alt="A finished level: a card reads All shelved with three flames for Market Stall level 1, and a Next batch button">
+        <picture><source type="image/webp" srcset="shots/won.webp"><img src="shots/won.png" width="780" height="1688" loading="lazy" alt="A finished level: a card reads All shelved with three flames for Market Stall level 1, and a Next batch button"></picture>
         <figcaption>All shelved, three flames</figcaption>
       </figure>
     </div>
