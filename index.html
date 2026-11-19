@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twinwick: a candle-heap puzzle for iPhone and iPad</title>
+<meta name="description" content="Twinwick is a calm puzzle game: tap candles from a heap, stand them in seven brass holders, and burn three alike away. Tied candles travel together. 120 free levels, no timers, no lives, no ads.">
+<link rel="canonical" href="https://nguyenvanlamm.github.io/twinwick-site/">
+<meta name="theme-color" content="#F4F2EB">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Twinwick">
+<meta property="og:title" content="Twinwick: a candle-heap puzzle">
+<meta property="og:description" content="Tap candles from a heap, stand them in seven brass holders, burn three alike away. Tied candles travel together. 120 free levels, no timers, no ads.">
+<meta property="og:url" content="https://nguyenvanlamm.github.io/twinwick-site/">
+<meta property="og:image" content="https://nguyenvanlamm.github.io/twinwick-site/icon.png">
+<meta property="og:image:width" content="1024">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:alt" content="Twinwick app icon: two taper candles tied by one wick over a brass holder">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Azeret+Mono:wght@500&family=Schibsted+Grotesk:wght@400;600;800&display=swap">
+<style>
+  :root {
+    --linen: #F4F2EB; --paper: #FCFBF7; --ink: #261D17; --muted: #5E5248; --line: #E2DCCD;
+    --apricot: #F59D4F; --deep: #A0461C; --brass: #C49F4D;
+    --sans: "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --mono: "Azeret Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--linen); color: var(--ink); font: 17px/1.6 var(--sans); overflow-x: hidden; }
+  img { max-width: 100%; height: auto; display: block; }
+  a { color: var(--deep); text-underline-offset: 3px; }
+  a:focus-visible { outline: 2px solid var(--deep); outline-offset: 2px; border-radius: 4px; }
+  .wrap { max-width: 960px; margin: 0 auto; padding: 0 16px; }
+  .label { font: 500 12px/1.4 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+  header.hero { padding: 40px 0 24px; text-align: center; }
+  .hero .icon { width: 112px; height: 112px; margin: 0 auto 20px; border-radius: 25px; box-shadow: 0 1px 0 var(--line), 0 10px 26px rgba(38,29,23,.16); }
+  h1 { font-weight: 800; font-size: clamp(44px, 12vw, 72px); line-height: 1; letter-spacing: -.03em; margin: 0 0 14px; }
+  .hook { font-size: clamp(19px, 4.6vw, 23px); line-height: 1.4; margin: 0 auto 18px; max-width: 30ch; }
+  .soon { display: inline-flex; align-items: center; gap: 10px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px; font: 500 14px/1.3 var(--mono); }
+  .soon .flame { width: 10px; height: 14px; background: var(--apricot); border: 1.5px solid var(--deep); border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%; flex: none; }
+  .facts { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 14px; font: 500 12px/1.5 var(--mono); color: var(--muted); }
+
+  .shots { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; padding: 16px 0 8px; }
+  .shots figure { margin: 0; }
+  .shots img { border-radius: 18px; border: 1px solid var(--line); background: var(--paper); box-shadow: 0 8px 22px rgba(38,29,23,.10); aspect-ratio: 780 / 1688; width: 100%; }
+  .shots figcaption { font: 500 12px/1.4 var(--mono); color: var(--muted); text-align: center; margin-top: 8px; }
+  @media (max-width: 599px) {
+    .shots { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 62%; overflow-x: auto; scroll-snap-type: x mandatory; padding: 16px 16px 8px; margin: 0 -16px; }
+    .shots figure { scroll-snap-align: center; }
+  }
+
+  section { padding: 32px 0; }
+  h2 { font-weight: 800; font-size: clamp(26px, 6vw, 34px); line-height: 1.15; letter-spacing: -.02em; margin: 6px 0 14px; }
+  .card { background: var(--paper); border: 1px solid var(--line); border-radius: 18px; padding: 22px 20px; }
+  .lede { max-width: 60ch; margin: 0 0 6px; }
+
+  ol.steps { list-style: none; counter-reset: s; padding: 0; margin: 0; }
+  ol.steps li { counter-increment: s; position: relative; padding: 14px 0 14px 46px; border-top: 1px solid var(--line); }
+  ol.steps li:first-child { border-top: 0; padding-top: 4px; }
+  ol.steps li::before { content: counter(s, decimal-leading-zero); position: absolute; left: 0; top: 14px; font: 500 14px/1.6 var(--mono); color: var(--deep); }
+  ol.steps li:first-child::before { top: 4px; }
+  ol.steps strong { font-weight: 600; }
+
+  .grid2 { display: grid; gap: 14px; }
+  @media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  .chapters { list-style: none; padding: 0; margin: 0; }
+  .chapters li { display: flex; gap: 12px; align-items: baseline; padding: 7px 0; border-top: 1px dashed var(--line); }
+  .chapters li:first-child { border-top: 0; }
+  .chapters .n { font: 500 13px/1.6 var(--mono); color: var(--muted); flex: none; }
+  .tools { list-style: none; padding: 0; margin: 0; }
+  .tools li { padding: 7px 0 7px 18px; position: relative; }
+  .tools li::before { content: ""; position: absolute; left: 0; top: 16px; width: 8px; height: 8px; border-radius: 50%; background: var(--brass); }
+  .fair { margin-top: 14px; }
+
+  footer { border-top: 1px solid var(--line); padding: 24px 0 40px; margin-top: 16px; font-size: 15px; color: var(--muted); }
+  footer nav { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-bottom: 8px; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <img class="icon" src="icon.png" width="112" height="112" alt="Twinwick app icon: two taper candles, one pink and one slate blue, tied by one wick over a brass holder">
+    <h1>Twinwick</h1>
+    <p class="hook">The market is over and the candles are in a heap. Stand them up, three alike, and watch them burn away.</p>
+    <p class="soon"><span class="flame" aria-hidden="true"></span>Coming soon to the App Store</p>
+    <ul class="facts" aria-label="At a glance">
+      <li>120 free levels</li><li>No timers</li><li>No lives</li><li>No ads</li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="shots" role="list" aria-label="Screenshots">
+      <figure role="listitem">
+        <img src="shots/game.png" width="780" height="1688" loading="lazy" alt="A level in the Still Warm chapter: a heap of wax candles on a linen cloth, some joined by dark wicks, seven empty brass holders on a curved wall rail above, and a tall candle on the right showing 39 candles left">
+        <figcaption>A heap on the linen cloth</figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="shots/home.png" width="780" height="1688" loading="lazy" alt="The Twinwick home screen: wax balance, a Light up button for level 85, and the six chapters from Market Stall to Festival Order with flames earned per level">
+        <figcaption>Six chapters, 120 levels</figcaption>
+      </figure>
+      <figure role="listitem">
+        <img src="shots/won.png" width="780" height="1688" loading="lazy" alt="A finished level: a card reads All shelved with three flames for Market Stall level 1, and a Next batch button">
+        <figcaption>All shelved, three flames</figcaption>
+      </figure>
+    </div>
+
+    <section aria-labelledby="how">
+      <p class="label">How it plays</p>
+      <h2 id="how">Count the holders before you pull a wick</h2>
+      <div class="card">
+        <ol class="steps">
+          <li><strong>Tap any candle you can see.</strong> Even one half buried in the heap. It stands up in one of seven brass holders on the wall rail.</li>
+          <li><strong>Three alike burn away.</strong> They catch for a moment, go out in a curl of smoke, and free their holders.</li>
+          <li><strong>Tied candles travel together.</strong> Two or three candles on one wick go up as a group, buried ones included. If the group will not fit, the wick goes taut and nothing is lost, so count the free holders first.</li>
+          <li><strong>Warm wax waits.</strong> A candle marked with a number lifts only after that many triples have burned.</li>
+          <li><strong>Clear the cloth to shelve the batch.</strong> Seven full holders and no three alike ends it; play it again for free.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section aria-labelledby="more">
+      <p class="label">What is in the box</p>
+      <h2 id="more">120 levels, three tools, nothing chasing you</h2>
+      <div class="grid2">
+        <div class="card">
+          <ul class="chapters" aria-label="Chapters">
+            <li><span class="n">01</span>Market Stall</li>
+            <li><span class="n">02</span>Dipping Room</li>
+            <li><span class="n">03</span>Long Wicks</li>
+            <li><span class="n">04</span>Twin Shades</li>
+            <li><span class="n">05</span>Still Warm</li>
+            <li><span class="n">06</span>Festival Order</li>
+          </ul>
+        </div>
+        <div class="card">
+          <ul class="tools" aria-label="Tools">
+            <li><strong>Trim</strong> cuts a wick, so its candles go alone.</li>
+            <li><strong>Put Back</strong> returns your last move to the heap.</li>
+            <li><strong>Spare Holder</strong> adds an eighth holder for the rest of the level.</li>
+          </ul>
+          <p class="fair">Each level earns one to three flames: use five holders or fewer for all three. Tools cost wax, which you earn by winning. Optional wax packs are sold in the app; every level stays free.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <nav aria-label="Footer">
+      <a href="support.html">Support</a>
+      <a href="privacy.html">Privacy Policy</a>
+    </nav>
+    <p>Twinwick for iPhone and iPad. No account, no tracking: your progress stays on your device.</p>
+  </div>
+</footer>
+</body>
+</html>
