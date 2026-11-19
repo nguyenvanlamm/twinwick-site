@@ -1,0 +1,22 @@
+# Twinwick
+
+> Twinwick is a calm puzzle game for iPhone (iOS 15 or later). After market day a chandler's batch of candles lies in a 3D heap on a linen cloth; stand them in seven brass holders on a wall rail, and three alike burn away. Candles tied by one wick travel together. Coming soon to the App Store.
+
+- Controls: tap any candle you can see, even one partly buried in the heap. It stands in one of seven holders; three alike catch flame, burn away and free their holders.
+- Tied candles: two or three candles on one wick go up together, buried ones included. If the group will not fit, the wick goes taut and nothing is lost, so count the free holders first.
+- Warm wax: a candle marked with a number lifts only after that many triples have burned in the level.
+- A level ends when the cloth is clear ("All shelved"). Seven full holders and no three alike ends it; play again at once, for free. Flames: 3 if you never use more than five holders at once, 2 for six, 1 for seven or more.
+- 120 levels in six chapters: Market Stall, Dipping Room, Long Wicks, Twin Shades, Still Warm, Festival Order. All levels are free and open in order.
+- Tools: Trim (cuts a wick), Put Back (returns your last move), Spare Holder (an eighth holder for the rest of the level). They arrive at levels 6, 12 and 18 with two uses each; more cost wax (Trim 60, Put Back 40, Spare Holder 90), earned from a level's first win, its first three-flame win and every finished chapter.
+- Purchases (optional, consumable): Handful of Wax (400 wax, $1.49), Wax Block (1,100 wax, $3.49), Chandler's Stock (2,800 wax and one of each tool, $7.99). Restore purchases is in Settings.
+- No timers, no lives, no ads, no account, no analytics or tracking. Progress stays on the device and the game plays offline; only purchases talk to the App Store. English only.
+
+## Pages
+
+- [Home](https://nguyenvanlamm.github.io/twinwick-site/index.html.md): what the game is and how it plays
+- [Support](https://nguyenvanlamm.github.io/twinwick-site/support.html.md): contact, how to play, tools, wax packs and restoring, sound, progress
+- [Privacy Policy](https://nguyenvanlamm.github.io/twinwick-site/privacy.html.md): what the game stores on the device and what it never collects
+
+## Optional
+
+- [Website](https://nguyenvanlamm.github.io/twinwick-site/): the HTML landing page
