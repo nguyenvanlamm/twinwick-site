@@ -11,8 +11,8 @@ The market is over and the candles are in a heap. Stand them up, three alike, an
 1. **Tap any candle you can see.** Even one half buried in the heap. It stands up in one of seven brass holders on the wall rail.
 2. **Three alike burn away.** They catch for a moment, go out in a curl of smoke, and free their holders.
 3. **Tied candles travel together.** Two or three candles on one wick go up as a group, buried ones included. If the group will not fit, the wick goes taut and nothing is lost, so count the free holders first.
-4. **Warm wax waits.** A candle marked with a number lifts only after that many triples have burned.
-5. **Clear the cloth to shelve the batch.** Seven full holders and no three alike ends it; play it again for free.
+4. **Warm wax waits.** A warm candle carries a number and lifts only after that many triples (sets of three alike) have burned.
+5. **Clear the cloth to shelve the batch**, which wins the level. Seven full holders with no three alike ends the try; play it again for free.
 
 ## What is in the box: 120 levels, three tools, nothing chasing you
 
